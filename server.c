@@ -1,7 +1,9 @@
 #include "server.h"
 
-t_server server_constructor(int domain, int service, int protocol,\
-		u_long interface, int port, int backlog, void(*launch)(t_server *server))
+t_server server_constructor(\
+		int domain, int service, int protocol, \
+		u_long interface, int port, int backlog, \
+		void(*launch)(t_server *server))
 {
 	t_server server;
 
@@ -23,7 +25,8 @@ t_server server_constructor(int domain, int service, int protocol,\
 		exit(1);
 	}
 
-	if((bind(server.socket, (struct sockaddr *)&server.address, sizeof(server.address))) < 0)
+	if((bind(server.socket, (struct sockaddr *)&server.address, \
+					sizeof(server.address))) < 0)
 	{
 		perror("Failed to bind socket...\n");
 		exit(1);

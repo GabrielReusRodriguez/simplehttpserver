@@ -25,7 +25,9 @@ typedef struct s_server
 } t_server;
 
 
-t_server server_constructor(int domain, int service, int protocol,\
-		u_long interface, int port, int backlog, void(*launch)(t_server *server));
+t_server server_constructor(\
+		int domain, int service, int protocol, \
+		u_long interface, int port, int backlog,\
+		void(*launch)(t_server *server));
 
 #endif
