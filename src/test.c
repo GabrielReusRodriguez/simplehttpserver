@@ -23,5 +23,5 @@ int main()
 {
 	t_server server = server_constructor(AF_INET, SOCK_STREAM, 0, INADDR_ANY, 80, 10, launch);
 	server.launch(&server);
-	return 0;
+	return (EXIT_SUCCESS);
 }
