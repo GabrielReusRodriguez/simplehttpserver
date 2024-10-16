@@ -15,6 +15,11 @@ SERVER_SRC	=	server.c	\
 SERVER_OBJS		=	$(patsubst %.c,${OBJ_DIR}/%.o,${SERVER_SRC})
 SERVER_DEPS 	=	$(patsubst %.c,${OBJ_DIR}/%.d,${SERVER_SRC})
 
+ifdef CSANITIZE
+	CFLAGS	+= -fsanitize=address -fsanitize=leak
+endif
+
+
 all:	$(NAME)
 
 $(NAME):	$(SERVER_OBJS) 
